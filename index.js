@@ -144,7 +144,7 @@ const resolvers={
         async deleteComment(parent, args, context, info){
             const{body, id,postID }=args
             await Blog.updateOne({},{
-                $pull:{comments:{id:id}}
+                $pull:{comments:{"_id":id}}
             })
             // await Blog.find({_id:postID}).then(
             //     item=>{
@@ -163,7 +163,7 @@ const server= new ApolloServer({typeDefs,resolvers})
 // mongoose.connect(`mongodb+srv://${process.env.mongoUserName}:${process.env.mongoUserPassword}@cluster0.ajmoq.mongodb.net/${process.env.mongoDatabase}?retryWrites=true&w=majority`,{useNewUrlParser: true,})
 mongoose.connect(`mongodb://${process.env.mongoUserName}:${process.env.mongoUserPassword}@cluster0-shard-00-00.ajmoq.mongodb.net:27017,cluster0-shard-00-01.ajmoq.mongodb.net:27017,cluster0-shard-00-02.ajmoq.mongodb.net:27017/${process.env.mongoDatabase}?ssl=true&replicaSet=atlas-hzw64c-shard-0&authSource=admin&retryWrites=true&w=majority`)
 .then(
-    server.listen({ port: process.env.PORT || 4000 }).then(
+    server.listen({ port: process.env.PORT || 5000 }).then(
         ({url})=>{
             console.log(`Server is ready at ${url}`)
         }
