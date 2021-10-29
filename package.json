@@ -2,5 +2,16 @@
   "name": "blogAssignment",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon  ."
+  },
+  "dependencies": {
+    "apollo-server": "^3.4.0",
+    "graphql": "^16.0.0",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }
